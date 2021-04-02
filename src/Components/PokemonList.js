@@ -27,7 +27,7 @@ export default function PokemonList() {
 
 
     return (
-        <div>
+        <div className="pokemon-list">
             { !res.loading && 
                 <span className="nav-btns">
                     <button onClick={() => setCurrentPageUrl(prevPageUrl)}>Prev</button>
