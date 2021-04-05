@@ -24,6 +24,7 @@ header {
 
 .nav-btns {
   width: 100vw;
+  z-index: 100;
   display: flex;
   position: fixed;
   justify-content: center;
@@ -45,20 +46,37 @@ header {
 }
 
 .pokecard {
-  display: block;
+  display: flex;
+  /* z-index: -1; */
+  flex-direction: column;
   position: relative;
   box-shadow: 2px 2px 5px gray;
   padding: 10px;
   margin: 10vw;
   /* flex-wrap: wrap; */
   align-items: center;
-  align-content: center;
-  justify-items: center;
   justify-content: center;
   border-radius: 10px;
+  position: relative;
 }
 
 .pokecard img{
   height: 50vh;
   width: 50vw;
+}
+
+.pokecard > button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+
+  background: none;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.pokecard > button:hover{
+  filter: contrast(110%) brightness(130%);
+  transform: scale(1.5);
 }

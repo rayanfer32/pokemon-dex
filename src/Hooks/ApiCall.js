@@ -9,6 +9,7 @@ export function useAxiosGet(url) {
     })
 
     useEffect( () => {
+    
         setResponse({
             loading: true,
             data: null,

@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PokeCard from './PokeCard'
 import { useAxiosGet } from "../Hooks/ApiCall"
 import { useState } from "react"
 
+import usePokemon from '../Hooks/usePokemon';
+
 export default function PokemonList() {
+
+    // const demo = useContext(PokemonContext);
+    const demo2 = usePokemon();
+
+    console.log(demo2.fav)
 
     const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
 
@@ -14,6 +21,7 @@ export default function PokemonList() {
     let res = useAxiosGet(currentPageUrl)
     
     let pokemons = []
+
     let prevPageUrl
     let nextPageUrl
     if(!res.loading && res.data !== null ){
