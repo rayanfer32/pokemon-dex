@@ -10,23 +10,19 @@ import env from "../env/base"
 export default function PokemonList() {
 
     // const demo = useContext(PokemonContext);
-    const demo2 = usePokemon();
-
-    console.log(demo2.fav)
-    console.log(env.api)
+    const userData = usePokemon();
 
     const [currentPageUrl, setCurrentPageUrl] = useState(env.api)
 
     
     let display = null
 
-
     let res = useAxiosGet(currentPageUrl)
     
     let pokemons = []
-
     let prevPageUrl
     let nextPageUrl
+
     if(!res.loading && res.data !== null ){
         pokemons = res.data.results
         nextPageUrl = res.data.next
@@ -34,8 +30,14 @@ export default function PokemonList() {
     }
 
 
-    display = pokemons.map(pokemon => <PokeCard key={pokemon.name} pokemon={pokemon} />) 
-
+    if (userData.state.showFavorites) {
+        display = userData.fav.map(pokemon => <PokeCard key={pokemon.name} pokemon={pokemon} fav={true}/>)
+    }
+    else {
+        display = pokemons.map(pokemon => <PokeCard key={pokemon.name} pokemon={pokemon} />) 
+    }
+    
+    
 
     return (
         <div className="pokemon-list">

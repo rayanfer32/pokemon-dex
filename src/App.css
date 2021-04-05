@@ -12,6 +12,10 @@ body {
   padding: 0;
 }
 
+:focus {
+  outline: 1px dashed cornflowerblue;
+}
+
 header {
   display: flex;
   color: white; 

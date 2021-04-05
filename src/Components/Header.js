@@ -1,10 +1,18 @@
 import React from "react"
+import usePokemon from "../Hooks/usePokemon"
 
 
 export default function Header({navs}){
 
+    const userData = usePokemon()
+
     function handleFavorites(){
-        console.log("clicked favorites")
+    
+        userData.setState(
+            {...userData.state,'showFavorites': !userData.state.showFavorites}
+        )
+        console.log(userData.state)
+
     }
 
     return (

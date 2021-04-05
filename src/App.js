@@ -7,9 +7,9 @@ import Provider from "./Store/Context";
 const App = () => {
     return (
         <div>
-            <Header />
             <Provider>
-                 <PokemonList />
+                <Header />
+                <PokemonList />
             </Provider>
         </div>
     )
