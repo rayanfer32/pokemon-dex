@@ -35,7 +35,7 @@ export default function PokeCard({ pokemon }) {
             <div className="pokecard">
                 <img src={pokemonDetails.data.sprites.other.dream_world.front_default} alt="pokemon pic"></img>
                 <h1>{pokemon.name}</h1>
-                <button onClick={() => handleFav(pokemon.name)}>❤️</button>
+                <button style={{ color:"black"}} onClick={() => handleFav(pokemon.name)}>❤️</button>
             </div>
     }
 

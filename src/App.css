@@ -45,6 +45,12 @@ header {
   box-shadow: 2px 2px 5px gray;
 }
 
+.nav-btns button:hover {
+  background: tomato;
+  cursor: pointer;
+  box-shadow: 1px -5px 10px red;
+}
+
 .pokecard {
   display: flex;
   /* z-index: -1; */
@@ -78,5 +84,20 @@ header {
 
 .pokecard > button:hover{
   filter: contrast(110%) brightness(130%);
-  transform: scale(1.5);
+  transform: scale(1.5) rotate(10deg);
+  filter: drop-shadow(1px 1px 4px red);
+}
+
+.fav-header {
+  border: none;
+  background: coral;
+  color: white;
+  font-weight: bold;
+  
+  border-radius: 10px;
+}
+
+.fav-header:hover {
+  background: tomato;
+  box-shadow: 1px 1px 10px red;
 }
