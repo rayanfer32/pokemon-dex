@@ -5,14 +5,17 @@ import { useState } from "react"
 
 import usePokemon from '../Hooks/usePokemon';
 
+import env from "../env/base"
+
 export default function PokemonList() {
 
     // const demo = useContext(PokemonContext);
     const demo2 = usePokemon();
 
     console.log(demo2.fav)
+    console.log(env.api)
 
-    const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
+    const [currentPageUrl, setCurrentPageUrl] = useState(env.api)
 
     
     let display = null

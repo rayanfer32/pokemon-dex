@@ -2,11 +2,14 @@ import React from 'react'
 import { useAxiosGet } from '../Hooks/ApiCall'
 import usePokemon from '../Hooks/usePokemon'
 
+
+
 export default function PokeCard({ pokemon }) {
     const userData = usePokemon();
 
     const handleFav = (id) => {
         let newFav = [...userData.fav, id];
+
         if(userData.fav.includes(id)) {
             newFav = userData.fav.filter((currId) => currId !== id)
         }
