@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PokeCard from './PokeCard'
 import { useAxiosGet } from "../Hooks/ApiCall"
 import { useState } from "react"
@@ -6,6 +6,7 @@ import { useState } from "react"
 import usePokemon from '../Hooks/usePokemon';
 
 import env from "../env/base"
+import NavButtons from './NavButtons';
 
 export default function PokemonList() {
 
@@ -31,21 +32,24 @@ export default function PokemonList() {
 
 
     if (userData.state.showFavorites) {
-        display = userData.fav.map(pokemon => <PokeCard key={pokemon.name} pokemon={pokemon} fav={true}/>)
+        display = userData.fav.length < 1 ? <h1 className="no-favs">No Favorite Pokemons</h1> : userData.fav.map(pokemon => <PokeCard key={pokemon.name} pokemon={pokemon} fav={true}/>)
     }
     else {
-        display = pokemons.map(pokemon => <PokeCard key={pokemon.name} pokemon={pokemon} />) 
+        display =  pokemons.map(pokemon => <PokeCard key={pokemon.name} pokemon={pokemon} />) 
     }
     
-    
+    function gotoPrevPage(){
+        setCurrentPageUrl(prevPageUrl)
+    }
+
+    function gotoNextPage(){
+        setCurrentPageUrl(nextPageUrl)
+    }
 
     return (
         <div className="pokemon-list">
             { !res.loading && 
-                <span className="nav-btns">
-                    <button onClick={() => setCurrentPageUrl(prevPageUrl)}>Prev</button>
-                    <button onClick={() => setCurrentPageUrl(nextPageUrl)}>Next</button>
-                </span>
+                userData.state.showFavorites ? null : <NavButtons gotoNextPage={() => gotoNextPage} />
             }
             { res.loading ? <h1>Loading...</h1> : display }
         </div>
